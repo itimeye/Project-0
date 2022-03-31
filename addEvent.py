@@ -7,11 +7,12 @@ def create_Event():
     client = MongoClient('mongodb://localhost:27017')
 
     db = client.project0
-    col = db['agendaEntry']
+    col = db['eventEntry']
 
     entryData = {}
 
     while (True):
+        print("_____________________________________")
         eventName = input('Enter your Event Name: ')
         print('Saved event ' + eventName)
         entryData["eventName"] = eventName
@@ -25,7 +26,8 @@ def create_Event():
                 3 : "Wednesday",
                 4 : "Thursday",
                 5 : "Friday",
-                6 : "Friday"
+                6 : "Saturday",
+                7 : "Sunday"
                 }
             )
         entryWeekday.printAgendaMenu()

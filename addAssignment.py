@@ -8,11 +8,12 @@ def create_Assignment():
     client = MongoClient('mongodb://localhost:27017')
 
     db = client.project0
-    col = db['agendaEntry']
+    col = db['assignmentEntry']
 
     entryData = {}
 
     while (True):
+        print("_____________________________________")
         assignmentName = input('Enter your Assignment Name: ')
         print('Saved assignment ' + assignmentName)
         entryData["assignemntName"] = assignmentName
@@ -26,7 +27,7 @@ def create_Assignment():
                 3 : "Wednesday",
                 4 : "Thursday",
                 5 : "Friday",
-                6 : "Friday"
+                6 : "Saturday"
                 }
             )
         entryWeekday.printAgendaMenu()

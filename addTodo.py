@@ -7,10 +7,11 @@ def create_Todo():
     client = MongoClient('mongodb://localhost:27017')
 
     db = client.project0
-    col = db['agendaEntry']
+    col = db['toDoEntry']
 
     entryData = {}
     while (True):
+        print("_____________________________________")
         toDoName = input("Enter your To do Item's Name: ")
         print('Saved To do Item ' + toDoName)
         entryData["toDoName"] = toDoName
@@ -24,7 +25,8 @@ def create_Todo():
                 3 : "Wednesday",
                 4 : "Thursday",
                 5 : "Friday",
-                6 : "Friday"
+                6 : "Saturday",
+                7 : "Sunday"
                 }
             )
         entryWeekday.printAgendaMenu()

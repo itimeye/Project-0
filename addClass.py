@@ -4,18 +4,20 @@ from MenuClass import AgendaMenu
 import pprint
 
 def add_class():
+
     client = MongoClient('mongodb://localhost:27017')
     db = client.project0
-    col = db['agendaEntry']
+    col = db['classEntry']
 
     entryData = {}
     
+    print("_____________________________________")
     className = input('Enter your Class Name: ')
     print('Saved class ' + className)
     entryData["className"] = className
     if (className == ""):
         print('Please enter your Class Name: ')
-        
+    else:    
         entryWeekday = AgendaMenu(    
             {
                 1 : "Monday",
@@ -23,7 +25,7 @@ def add_class():
                 3 : "Wednesday",
                 4 : "Thursday",
                 5 : "Friday",
-                6 : "Friday"
+                6 : "Saturday"
                 }
             )
         entryWeekday.printAgendaMenu()

@@ -34,7 +34,7 @@ def greeting():
 
         option.printAgendaMenu()
         result = option.menuResponse("Please enter what type of Agenda Entry you are making. ")
-        # entryData["entryType"] = result
+        entryData["entryType"] = result
         if (result == "View Shcedule"):
             view_schedule()
         elif (result == "Edit Schedule"):
