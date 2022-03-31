@@ -34,21 +34,21 @@ def create_Event():
         resultWeekday = entryWeekday.menuResponse("Please enter the number corresponding with you events date ")
         entryData["weekday"] = resultWeekday
            
-        classTime = 0
+        eventTime = 0
         hhh = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-        classTime = int(input("Enter the hour your class starts. /n ex, 10 for 10:30: "))
-        print(classTime, type(classTime))
-        if classTime in hhh:
+        eventTime = int(input("Enter the hour your class starts. /n ex, 10 for 10:30: "))
+        print(eventTime, type(eventTime))
+        if eventTime in hhh:
             print('Saved ')
-            entryData["classHour"] = classTime
+            entryData["eventHour"] = eventTime
 
-        classTimeM = 0
+        eventTimeM = 0
         mmm = range(60)
-        classTimeM = int(input("Enter the minutes your class starts. /n ex, 30 for 10:30: "))
-        print(classTimeM, type(classTimeM))
-        if classTimeM in mmm:
+        eventTimeM = int(input("Enter the minutes your class starts. /n ex, 30 for 10:30: "))
+        print(eventTimeM, type(eventTimeM))
+        if eventTimeM in mmm:
             print('Saved ')
-            entryData["classMinute"] = classTimeM
+            entryData["eventMinute"] = eventTimeM
             
         # return studentName
         
