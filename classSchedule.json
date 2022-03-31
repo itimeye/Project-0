@@ -6,12 +6,12 @@
 {"className" : "Acting for Camera", "weekday" : "Monday", "classHour" : 10, "classMinute" : 0 },
 {"className" : "Acting IIII", "weekday" : "Monday", "classHour" : 12, "classMinute" : 15 },
 {"className" : "Math 101", "weekday" : "Tuesday", "classHour" : 1, "classMinute" : 30 },
-{"className" : "Beginners Python", "weekday" : "Monday", "classHour" : 3, "classMinute" : 0 },
+{"className" : "Ballet", "weekday" : "Monday", "classHour" : 3, "classMinute" : 0 },
 {"className" : "Beginners Python", "weekday" : "Wednesday", "classHour" : 9, "classMinute" : 0 },
 {"className" : "Diction", "weekday" : "Thursday", "classHour" : 10, "classMinute" : 45 },
 {"className" : "Information Systems", "weekday" : "Thursday", "classHour" : 12, "classMinute" : 0 },
 {"className" : "Acting for Camera", "weekday" : "Wednesday", "classHour" : 10, "classMinute" : 0 },
 {"className" : "Acting IIII", "weekday" : "Wednesday", "classHour" : 12, "classMinute" : 15 },
 {"className" : "Math 101", "weekday" : "Thursday", "classHour" : 1, "classMinute" : 30 },
-{"className" : "Beginners Python", "weekday" : "Wednesday", "classHour" : 3, "classMinute" : 0 }
+{"className" : "Ballet", "weekday" : "Wednesday", "classHour" : 3, "classMinute" : 0 }
 ]

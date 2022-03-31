@@ -3,11 +3,13 @@ from  pymongo import MongoClient
 from MenuClass import AgendaMenu
 from pprint import pprint
 import json
+# from Project0 import greeting
 from addAssignment import create_Assignment
 from addClass import add_class
 from addEvent import create_Event
 from addTodo import create_Todo
-# from Project0 import greeting
+
+
 """These are functions to update different entries"""
 def class_change():
     client = MongoClient('mongodb://localhost:27017')

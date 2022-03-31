@@ -1,1 +1,0 @@
-{"name": "English 101", "schdule": "Monday, Tuesday", "hour": 12, "minute": 45}

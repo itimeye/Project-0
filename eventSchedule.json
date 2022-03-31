@@ -1,0 +1,11 @@
+[
+    {"eventName": "Movie Date with Adam", "weekday": "Sunday", "eventHour": 11, "eventMinute": 15},
+    {"eventName": "Python Seminar", "weekday": "Monday", "eventHour": 12, "eventMinute": 15},
+    {"eventName": "Chilli's Dinner with Friends", "weekday": "Wednesday", "eventHour": 7, "eventMinute": 45},
+    {"eventName": "Paint and Sip", "weekday": "Thursday", "eventHour": 5, "eventMinute": 5},
+    {"eventName": "Korean BBQ", "weekday": "Friday", "eventHour": 7, "eventMinute": 15},
+    {"eventName": "Movie Marethon", "weekday": "Sunday", "eventHour": 4, "eventMinute": 0},
+    {"eventName": "Brunch", "weekday": "Saturday", "eventHour": 10, "eventMinute": 45},
+    {"eventName": "Cooking With Debby", "weekday": "Tuesday", "eventHour": 3, "eventMinute": 15},
+    {"eventName": "Ariel Silks", "weekday": "Monday", "eventHour": 7, "eventMinute": 15}
+]

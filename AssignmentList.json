@@ -1,3 +1,11 @@
-{"className": "English 101", "classHour": 10, "classMinute": 15},
-{"eventName": "Dinner with Kenny", "weekday": "Wednesday", "classHour": 6, "classMinute": 30}, 
-{"assignemntName": "Color in the lines", "weekday": "Thursday", "className": "Art 101"}
+[ 
+{"assignemntName": "Color in the lines", "weekday": "Thursday", "className": "Art 1308"},
+{"assignemntName": "Essay On the Lives of Modern Arisotcrats", "weekday": "Turesday", "className": "Acting for the Camera"},
+{"assignemntName": "Critical Review", "weekday": "Monday", "className": "Acting IIII"},
+{"assignemntName": "CIL APP", "weekday": "Friday", "className": "Beginners Python"},
+{"assignemntName": "Adding to 10", "weekday": "Tuesday", "className": "Math 101"},
+{"assignemntName": "Essay on 'The life of Martha Grahmn'", "weekday": "Monday", "className": "Ballet"},
+{"assignemntName": "Medea Recital", "weekday": "Tuesday", "className": "Diction"},
+{"assignemntName": "Find X 1.01", "weekday": "Wednesday", "className": "Math 101"},
+{"assignemntName": "Ukiyo-e Blocks", "weekday": "Tuesday", "className": "Art 1308"}
+]

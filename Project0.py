@@ -1,7 +1,6 @@
 from  pymongo import MongoClient
 #from Classoutline import AgendaMenu
 from MenuClass import AgendaMenu
-import pprint
 from addOreditEntry import choose_create
 from viewSchedule import view_schedule
 from deleteSchedule import delete_schedule
