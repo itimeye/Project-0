@@ -4,6 +4,7 @@ from MenuClass import AgendaMenu
 from addOreditEntry import choose_create
 from viewSchedule import view_schedule
 from deleteSchedule import delete_schedule
+import sys
 
 def greeting():
     client = MongoClient('mongodb://localhost:27017')
@@ -27,13 +28,16 @@ def greeting():
             {
                 1 : "View Shcedule",
                 2 : "Edit Schedule",
-                3 : "Delete Schedule"
+                3 : "Delete Schedule",
+                0 : "Exit"
                 }
             )
 
         option.printAgendaMenu()
         result = option.menuResponse("Please enter what type of Agenda Entry you are making. ")
         entryData["entryType"] = result
+        if (result == "Exit"):
+           sys.exit()
         if (result == "View Shcedule"):
             view_schedule()
         elif (result == "Edit Schedule"):

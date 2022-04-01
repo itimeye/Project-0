@@ -1,6 +1,6 @@
 from msilib.schema import Class
 from  pymongo import MongoClient
-import pymongo
+import sys
 #from Classoutline import AgendaMenu
 from MenuClass import AgendaMenu
 from pprint import pprint
@@ -14,22 +14,28 @@ def delete_schedule():
     while (True):
         deleteOptions = AgendaMenu(
             {
-                1 : "Delete last Entry"
+                1 : "Delete last Entry",
+                0 : "Exit"
             }
         )
         deleteOptions.printAgendaMenu()
         result9 = deleteOptions.menuResponse("What are we deleting? ")
+        if (result9 == "Exit"):
+           sys.exit()
         if (result9 == "Delete last Entry"):
             chooseEntry = AgendaMenu(
                 {
                     1 : "Class",
                     2 : "Event",
                     3 : "To Do",
-                    4 : "Assignment"
+                    4 : "Assignment",
+                    0 : "Exit"
                 }
             )
             chooseEntry.printAgendaMenu()
             result10 = chooseEntry.menuResponse("From Where? ")
+        if (result10 == "Exit"):
+           sys.exit()
         if (result10 == "Class"):
             # col = db['classEntry']
             docs = db.classEntry.find().sort([("$natural", -1)]).limit(1)

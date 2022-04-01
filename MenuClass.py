@@ -5,13 +5,13 @@ class AgendaMenu:
     def printAgendaMenu(self):
         for i in self.menu:
             print(f"{i}. {self.menu[i]}")
-        print("0. Exit")
+        # print("0. Exit")
 
     def menuResponse(self, feedback):
         while True:
             try:
                 self.entry = int(input(f"{feedback}"))
-                if self.entry <= len(self.menu) and self.entry >= 0:
+                if self.entry <= len(self.menu): #and self.entry >= 0:
                     return self.menu[self.entry]
                 else:
                     print("That is not an accepted answer. Try again: ")

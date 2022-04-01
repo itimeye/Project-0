@@ -8,7 +8,7 @@ from addAssignment import create_Assignment
 from addClass import add_class
 from addEvent import create_Event
 from addTodo import create_Todo
-
+import sys
 
 """These are functions to update different entries"""
 def class_change():
@@ -21,11 +21,14 @@ def class_change():
             1 : "Update Class Name",
             2 : "Update Class Hour",
             3 : "Update Class Minute",
-            4 : "Update Class Day"
+            4 : "Update Class Day",
+            0 : "Exit"
         }
     )
     nameChange.printAgendaMenu()
     resultName = nameChange.menuResponse("What are we updating? ")
+    if (resultName == "Exit"):
+           sys.exit()
     if (resultName == "Update Class Name"):
         OriginalclassName = input('Enter the Class name we are changing: ')
         ChangeclassName = input('Enter what we are changing the Class Name to ')
@@ -86,11 +89,14 @@ def event_change():
             1 : "Update Event Name",
             2 : "Update Event Hour",
             3 : "Update Event Minute",
-            4 : "Update Event Day"
+            4 : "Update Event Day",
+            0 : "Exit"
         }
     )
     nameChange.printAgendaMenu()
     resultName = nameChange.menuResponse("What are we updating? ")
+    if (resultName == "Exit"):
+           sys.exit()
     if (resultName == "Update Event Name"):
         OriginaleventName = input('Enter the Event name we are changing: ')
         ChangeeventName = input('Enter what we are changing the Event Name to ')
@@ -150,11 +156,14 @@ def toDO_change():
     nameChange = AgendaMenu(
         {
             1 : "Update To Do Name",
-            2 : "Update Due Date"    
+            2 : "Update Due Date",    
+            0 : "Exit"
         }
     )
     nameChange.printAgendaMenu()
     resultName = nameChange.menuResponse("What are we updating? ")
+    if (resultName == "Exit"):
+           sys.exit()
     if (resultName == "Update To Do Name"):
         OriginaltoDoName = input('Enter the To Do name we are changing: ')
         ChangetoDoName = input('Enter what we are changing the To Do Name to ')
@@ -197,11 +206,14 @@ def assignment_change():
         {
             1 : "Update Assignment Name",
             2 : "Update Due Date",
-            3 : "Class Name,"
+            3 : "Class Name",
+            0 : "Exit"
         }
     )
     nameChange.printAgendaMenu()
     resultName = nameChange.menuResponse("What are we updating? ")
+    if (resultName == "Exit"):
+           sys.exit()
     if (resultName == "Update Assignment Name"):
         OriginalassignmentName = input('Enter the Assignment name we are changing: ')
         ChangeassignmentName = input('Enter what we are changing the Assignment Name to ')
@@ -301,6 +313,8 @@ def upload_assignment():
 if(__name__) == "__main__":
     upload_assignment()
 
+
+
 """This is the main function"""
 def choose_create():
     client = MongoClient('mongodb://localhost:27017')
@@ -314,23 +328,27 @@ def choose_create():
             {
                 1 : "Update Entry",
                 2 : "Add new Entry",
-                3 : "Upload Entry"
+                3 : "Upload Entry",
+                0 : "Exit"
             }
         )
         choose.printAgendaMenu()
         result5 = choose.menuResponse("What would you like to do? ")
-        # if (result5 == "Exit"):
-        #     greeting()
+        if (result5 == "Exit"):
+           sys.exit() 
         if (result5 == "Upload Entry"):
             choose2 = AgendaMenu(
             {
                 1 : "Class",
                 2 : "Event",
                 3 : "To Do",
-                4 : "Assignment"
+                4 : "Assignment",
+                0 : "Exit"
             })
             choose2.printAgendaMenu()
             resultupload = choose2.menuResponse("What Entry type are we uploading? ")
+            if (resultupload == "Exit"):
+                sys.exit()
             if (resultupload == "Class"):
                 upload_class()
             if (resultupload == "Event"):
