@@ -4,11 +4,148 @@ from MenuClass import AgendaMenu
 from pprint import pprint
 import json
 # from Project0 import greeting
-from addAssignment import create_Assignment
 from addClass import add_class
-from addEvent import create_Event
-from addTodo import create_Todo
 import sys
+
+
+"""These functions are for creating and Events, Assignments, and To Do's entires"""
+
+def create_Assignment():
+    client = MongoClient('mongodb://localhost:27017')
+
+    db = client.project0
+    col = db['assignmentEntry']
+
+    entryData = {}
+
+    # while (True):
+    print("_____________________________________")
+    assignmentName = input('Enter your Assignment Name: ')
+    print('Saved assignment ' + assignmentName)
+    entryData["assignemntName"] = assignmentName
+    if (assignmentName == ""):
+        print('Please enter your Assignment Name: ')
+    
+    entryWeekday = AgendaMenu(    
+        {
+            1 : "Monday",
+            2 : "Tuesday",
+            3 : "Wednesday",
+            4 : "Thursday",
+            5 : "Friday",
+            6 : "Saturday"
+            }
+        )
+    entryWeekday.printAgendaMenu()
+    resultWeekday = entryWeekday.menuResponse("Please enter the number corresponding with you assignemnt due date ")
+    entryData["weekday"] = resultWeekday
+    className = input('Enter the class this assingment is for: ')
+    print('Saved class ' + className)
+    entryData["className"] = className
+    if (className == ""):
+        print('Please enter your Class Name: ')
+
+    print(entryData)
+    entryData_id = col.insert_one(entryData).inserted_id
+    print({entryData_id})
+
+if(__name__) == "__main__":
+    create_Assignment()
+
+def create_Todo():
+    client = MongoClient('mongodb://localhost:27017')
+
+    db = client.project0
+    col = db['toDoEntry']
+
+    entryData = {}
+    # while (True):
+    print("_____________________________________")
+    toDoName = input("Enter your To do Item's Name: ")
+    print('Saved To do Item ' + toDoName)
+    entryData["toDoName"] = toDoName
+    if (toDoName == ""):
+        print('Please enter your Event Name: ')
+    
+    entryWeekday = AgendaMenu(    
+        {
+            1 : "Monday",
+            2 : "Tuesday",
+            3 : "Wednesday",
+            4 : "Thursday",
+            5 : "Friday",
+            6 : "Saturday",
+            7 : "Sunday"
+            }
+        )
+    entryWeekday.printAgendaMenu()
+    resultWeekday = entryWeekday.menuResponse("Please enter the number corresponding with you to do item's due date ")
+    entryData["weekday"] = resultWeekday
+
+    print(entryData)
+    entryData_id = col.insert_one(entryData).inserted_id
+    print({entryData_id})
+
+if(__name__) == "__main__":
+    create_Todo()
+
+def create_Event():
+    client = MongoClient('mongodb://localhost:27017')
+
+    db = client.project0
+    col = db['eventEntry']
+
+    entryData = {}
+
+    # while (True):
+    print("_____________________________________")
+    eventName = input('Enter your Event Name: ')
+    print('Saved event ' + eventName)
+    entryData["eventName"] = eventName
+    if (eventName == ""):
+        print('Please enter your Event Name: ')
+    
+    entryWeekday = AgendaMenu(    
+        {
+            1 : "Monday",
+            2 : "Tuesday",
+            3 : "Wednesday",
+            4 : "Thursday",
+            5 : "Friday",
+            6 : "Saturday",
+            7 : "Sunday"
+            }
+        )
+    entryWeekday.printAgendaMenu()
+    resultWeekday = entryWeekday.menuResponse("Please enter the number corresponding with you events date ")
+    entryData["weekday"] = resultWeekday
+        
+    eventTime = 0
+    hhh = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    eventTime = int(input("Enter the hour your class starts. /n ex, 10 for 10:30: "))
+    print(eventTime, type(eventTime))
+    if eventTime in hhh:
+        print('Saved ')
+        entryData["eventHour"] = eventTime
+
+    eventTimeM = 0
+    mmm = range(60)
+    eventTimeM = int(input("Enter the minutes your class starts. /n ex, 30 for 10:30: "))
+    print(eventTimeM, type(eventTimeM))
+    if eventTimeM in mmm:
+        print('Saved ')
+        entryData["eventMinute"] = eventTimeM
+        
+    # return studentName
+    
+    print(entryData)
+    entryData_id = col.insert_one(entryData).inserted_id
+    print({entryData_id})
+
+if(__name__) == "__main__":
+    create_Event()
+
+
 
 """These are functions to update different entries"""
 def class_change():
@@ -167,8 +304,8 @@ def toDO_change():
     if (resultName == "Update To Do Name"):
         OriginaltoDoName = input('Enter the To Do name we are changing: ')
         ChangetoDoName = input('Enter what we are changing the To Do Name to ')
-        oen = {"eventName" : OriginaltoDoName}
-        cen = {"$set": {"eventName" : ChangetoDoName}}
+        oen = {"toDoNameName" : OriginaltoDoName}
+        cen = {"$set": {"toDoNameName" : ChangetoDoName}}
         change = db.classEntry.update_many(oen, cen)
         print("Entires Changed")
         print(change.modified_count)
@@ -217,8 +354,8 @@ def assignment_change():
     if (resultName == "Update Assignment Name"):
         OriginalassignmentName = input('Enter the Assignment name we are changing: ')
         ChangeassignmentName = input('Enter what we are changing the Assignment Name to ')
-        oan = {"eventName" : OriginalassignmentName}
-        can = {"$set": {"eventName" : ChangeassignmentName}}
+        oan = {"assignmentName" : OriginalassignmentName}
+        can = {"$set": {"assignmentName" : ChangeassignmentName}}
         change = db.toDoEntry.update_many(oan, can)
         print("Entires Changed")
         print(change.modified_count)
@@ -241,6 +378,15 @@ def assignment_change():
         oad = {"weekday" : OriginalassignmentDay}
         cad = {"$set": {"weekday" : ChangeassignmentDay}}
         change = db.assignmentEntry.update_many(oad, cad)
+        print("Entires Changed")
+        print(change.modified_count)
+        print("__________________________")
+    if (resultName == "Class Name"):
+        OriginalclassName = input('Enter the Class name we are changing: ')
+        ChangeclassName = input('Enter what we are changing the Class Name to ')
+        ocn = {"className" : OriginalclassName}
+        ccn = {"$set": {"className" : ChangeclassName}}
+        change = db.assignmentEntry.update_many(ocn, ccn)
         print("Entires Changed")
         print(change.modified_count)
         print("__________________________")
