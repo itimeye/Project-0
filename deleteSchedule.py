@@ -44,25 +44,25 @@ def delete_schedule():
             # print(docs)
             for p in docs:
                 pprint(p)
-            db.classEntry.delete_one(p)  
-            # print(col.deleted_count)
+            delete = db.classEntry.delete_one(p)  
+            print(delete.deleted_count)
         if(result10 == "Event"):
             docs = db.eventEntry.find().sort([("$natural", -1)]).limit(1)
             for q in docs:
                 pprint(q)
-            db.eventEntry.delete_one(q)  
-            # print(result9.deleted_count)
+            delete = db.eventEntry.delete_one(q)  
+            print(result9.deleted_count)
         if (result10 == "To Do"):
             docs = db.toDoEntry.find().sort([("$natural", -1)]).limit(1)
             for r in docs:
                 pprint(r)
-            db.toDoEntry.delete_one(r)  
+            delete = db.toDoEntry.delete_one(r)  
             # print(col.deleted_count)
         if (result10 == "Assignment"):
             docs = db.assignmentEntry.find().sort([("$natural", -1)]).limit(1)
             for s in docs:
                 pprint(s)
-            db.assignmentEntry.delete_one(s)  
-            # print(col.deleted_count)
+            delete = db.assignmentEntry.delete_one(s)  
+            print(col.deleted_count)
 if(__name__) == "__main__":
     delete_schedule()

@@ -3,6 +3,8 @@ from  pymongo import MongoClient
 from MenuClass import AgendaMenu
 from pprint import pprint
 import sys
+from colorama import init
+from termcolor import colored
 
 def view_schedule():
     client = MongoClient('mongodb://localhost:27017')
@@ -29,39 +31,57 @@ def view_schedule():
         if (result6 == "View Class Schedule"):
             col = db['classEntry']
             for x in col.aggregate([{'$project' : {"_id": False}}]):
-                pprint(x)
+            #     pprint(x)
+            
+                for value in x.values():
+                    print(value)
                 print("__________________________")
         if (result6 == "View Event Schedule"):
             col = db['eventEntry']
             for y in col.aggregate([{'$project' : {"_id": False}}]):
-                pprint(y)
+                # pprint(y)
+                for value in y.values():
+                    print(value)
                 print("__________________________")
         if (result6 == "View Assignment List"):
             col = db['assignmentEntry']
             for z in col.aggregate([{'$project' : {"_id": False}}]):
-                pprint(z)
+                # pprint(z)
+                for value in z.values():
+                    print(value)
                 print("__________________________")
         if (result6 == "View To Do List"):
             col = db['toDoEntry']
             for a in col.aggregate([{'$project' : {"_id": False}}]):
-                pprint(a)
+                # pprint(a)
+                for value in a.values():
+                    print(value)
                 print("__________________________")
         if (result6 == "View Entire Schedule"):
-            print("Class Schedule")
+            print(colored("Class Schedule", "red"))
             for b in db.classEntry.aggregate([{'$project' : {"_id": False}}]):
-                pprint(b)
+                # pprint(b)
+                for value in b.values():
+                    print(value)
+                    # print("=================")
             print("_____________________________________")
-            print("Event Schedule")
+            print(colored("Event Schedule", "red"))
             for c in db.eventEntry.aggregate([{'$project' : {"_id": False}}]):
-                pprint(c)
+                # pprint(c)
+                for value in c.values():
+                    print(value)
             print("_____________________________________")
-            print("To Do List")
+            print(colored("To Do List" "red"))
             for d in db.toDoEntry.aggregate([{'$project' : {"_id": False}}]):
-                pprint(d)
+                # pprint(d)
+                for value in d.values():
+                    print(value)
             print("_____________________________________")
-            print("Assignment List")
+            print(colored("Assignment List", "red"))
             for e in db.assignmentEntry.aggregate([{'$project' : {"_id": False}}]):
-                pprint(e)
+                # pprint(e)
+                for value in e.values():
+                    print(value)
             
 if(__name__) == "__main__":
     view_schedule()
